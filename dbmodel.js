@@ -4,7 +4,14 @@ const datab =  new db.Sequelize(process.env.DB, process.env.USER, process.env.PA
     host: process.env.HOST,
     dialect:'postgres',
     logging:false,
-    port:process.env.PORTDB
+    ssl:true,
+    port:process.env.PORTDB,
+    dialectOptions: {
+        ssl: {
+          require: true, // Require SSL
+          rejectUnauthorized: false // Disables rejection of self-signed SSL certificates
+        }
+    }
 })
 
 
