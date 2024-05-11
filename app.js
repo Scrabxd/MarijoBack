@@ -13,9 +13,7 @@ const app = express()
 const port = process.env.PORT;
 
 app.use(express.json())
-app.use(cors({
-    origin:["https://marijovxs.vercel.app","https://marijovxs-git-main-scrabxds-projects.vercel.app","https://marijovxs-2189r002a-scrabxds-projects.vercel.app/"],
-}))
+app.use(cors())
 
 app.post('/getListaInv',async(req,res) => {
     return res.json(await Asistencia.findAll())
