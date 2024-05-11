@@ -13,7 +13,9 @@ const app = express()
 const port = process.env.PORT;
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin:"marijovxs.vercel.app"
+}))
 
 app.post('/getListaInv',async(req,res) => {
     return res.json(await Asistencia.findAll())
@@ -99,6 +101,12 @@ app.post('/asistencia', [ check('nombre1','El nombre es requerido es lo unico >:
             id: createIp["id"]
         }})
 
+
+        console.log({
+            msg:"asistencia creada!",
+            status:200,
+            createAsistencia
+        })
     
         return res.status(200).json({
             MSG:"Asistencia creada!",
