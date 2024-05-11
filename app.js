@@ -14,7 +14,7 @@ const port = process.env.PORT;
 
 app.use(express.json())
 app.use(cors({
-    origin:"marijovxs.vercel.app"
+    origin:["https://marijovxs.vercel.app","https://marijovxs-git-main-scrabxds-projects.vercel.app","https://marijovxs-2189r002a-scrabxds-projects.vercel.app/"],
 }))
 
 app.post('/getListaInv',async(req,res) => {
