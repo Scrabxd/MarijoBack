@@ -1,6 +1,7 @@
 const express = require('express')
 const dotenv = require('dotenv').config()
 const { check } = require('express-validator');
+const cors = require('cors')
 
 const datab = require('./dbmodel');
 const Asistencia = require('./asistenciaModel')
@@ -12,6 +13,7 @@ const app = express()
 const port = process.env.PORT;
 
 app.use(express.json())
+app.use(cors())
 
 app.post('/getListaInv',async(req,res) => {
     return res.json(await Asistencia.findAll())
